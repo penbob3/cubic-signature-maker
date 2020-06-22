@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Cubic | Signature Generator</title>
+        <link rel="icon" href="https://cubic.com.au/wp-content/uploads/2019/09/Cubic-Icon-150x150.png" sizes="32x32">
+        <link rel="icon" href="https://cubic.com.au/wp-content/uploads/2019/09/Cubic-Icon-250x250.png" sizes="192x192">
+        <link rel="apple-touch-icon" href="https://cubic.com.au/wp-content/uploads/2019/09/Cubic-Icon-250x250.png">
+        <meta name="msapplication-TileImage" content="https://cubic.com.au/wp-content/uploads/2019/09/Cubic-Icon.png">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400&display=swap" rel="stylesheet"> 
+        <link rel="stylesheet" href="sigMaker.css">
+        <script src="sigMaker.js"></script>
+    </head>
+    <body>
+        <div id="header">
+            <img id="mainlogo" src="https://cubic.com.au/wp-content/uploads/2019/09/logo.svg" data-src="https://cubic.com.au/wp-content/uploads/2019/09/logo.svg">
+            <a style="text-decoration: none;" href="http://cubic.com.au"><div id="backtext"><h1>&lt; Return to main website</h1></div></a>
+        </div>
+        <div id="content">
+            <div id="spacer"></div>
+            <div id="infobox">
+                <p id="info">
+                    Use this website to generate a Cubic email signature, for use on iPhones/iPads and the default Mail app.<br>
+                    Your data is secure, processed locally on your device.
+                </p>
+            </div>
+            <div id="step1">
+                <div class="stepheader">
+                    <h2>Step 1: Enter your details</h2>
+                </div>
+                <div class="stepdesc">
+                    <p class="steptext">
+                        Enter your details into the fields below. Name and email are required,
+                        but job title, phone number and ending message are optional.
+                    </p>
+                </div>
+                <div id="fields" class="inputname">
+                    Name: <input class="inputtext" id="name" placeholder="John Smith"><br>
+                    E-mail: <input class="inputtext" id="email" placeholder="john@cubic.com.au"><br>
+                    Phone: <input class="inputtext" id="phone" placeholder="0411 222 333"><br>
+                    Title: <input class="inputtext" id="jobtitle" placeholder="CEO"><br>
+                    End Msg: <textarea class="inputtext" id="endmsg" rows="3" cols="1" placeholder="Cheers, John"></textarea>
+                </div>
+                <button id="sendbtn" type="submit" onclick="genSignature()">Submit</button>
+            </div>
+
+            <div id="step2" style="display: none;">
+                <div class="stepheader">
+                    <h2>Step 2: Copy and Paste</h2>
+                </div>
+                <div class="stepdesc">
+                    <p class="steptext">
+                        Your generated signature is below, and has been copied to your device's clipboard.
+                        If you made a spelling mistake, just re-enter your data above and click 'Submit' again.
+                        <br>If it all looks correct, proceed to step 3.
+                    </p>
+                </div>
+                <!-- Styling is inline for this section to ensure the signature formatting copies over correctly -->
+                <div id="sigcontainer">
+                    <div id="finishedsig">
+                        <p style="font-family: Tahoma, Geneva, sans-serif; font-size: 11pt; font-weight: 200; color: #394A58; margin-bottom: 0px">
+                            <span id="msgout">
+                            Kind regards,<br>
+                            JS<br>
+                            </span>
+                            <span id="nameout" style="font-weight: 600;">
+                                John Smith
+                            </span><br>
+                            <span id="titleout">CEO<br></span>
+                            <span style="font-weight: 600;">M </span><span id="phoneout">+61 421 222 333</span><br>
+                            <span style="font-weight: 600;">E </span><a id="emailout" href="mailto:john@cubic.com.au">john@cubic.com.au</a><br>
+                            <span style="font-weight: 600;">W </span><a href="http://www.cubic.com.au">www.cubic.com.au</a>
+                        </p>
+                        <img style="margin-top: 0x; margin-bottom: 0px; max-width: 217px;" src="/assets/Cubic_Logo.png"><br>
+                        <span>
+                            <a style="text-decoration:none;" href="https://www.facebook.com/cubicinteriorgroup/">
+                                <img style="max-width: 32px" src="/assets/Facebook_DarkOrange.png">
+                            </a>
+                            <a style="text-decoration:none;" href="https://www.instagram.com/cubic.group/">
+                                <img style="max-width: 32px" src="/assets/Instagram_DarkOrange.png">
+                            </a>
+                            <a style="text-decoration:none;" href="https://www.youtube.com/channel/UCQguS_TJb-ke81BPg-E-5RQ">
+                                <img style="max-width: 32px"src="/assets/YouTube_DarkOrange.png">
+                            </a>
+                            <a style="text-decoration:none;" href="https://www.linkedin.com/company/cubicgroup/?viewAsMember=true">
+                                <img style="max-width: 32px" src="/assets/LinkedIn_DarkOrange.png">
+                            </a>
+                        </span>
+                        <p style="margin-top: 3px; line-height: 20px; font-family: Tahoma, Geneva, sans-serif; font-size: 11pt; font-weight: 200; color: #394A58;">
+                            <span style="font-weight: 600;">National Head Office</span><br>
+                            33-37 Egerton Street, Silverwater NSW 2128<br>
+                            <span style="font-weight: 600;">T</span> 1300 028 242  <span style="font-weight: 600;">F</span> 1300 056 369 
+                        </p>
+                        <img style="margin-top: -10px; max-width: 602px" src="/assets/Footer_Signature.png">
+                    </div>
+                </div>
+            <p style="font-family: Tahoma, Geneva, sans-serif; font-size: 20pt; font-weight: 200; color: #394A58; margin-bottom: -30px; margin-top: 20px">
+                Note: The preview above is for text approval purposes,<br>formatting will look correct once sent in an email.
+            </p>
+            </div>
+
+            <div id="step3" style="display: none;">
+                <div class="stepheader">
+                    <h2>Step 3: Setup the Signature</h2>
+                </div>
+                <div class="stepdesc">
+                    <p class="steptext">
+                        Follow the guide below on how to set your device's default email signature to the one you just generated.
+                    </p>
+                </div>
+                <div id="images">
+                    <img class="tutimage" src="/assets/tut1.jpg">
+                    <h3 class="tuttext">1. Open Settings, then scroll down to Mail and tap it</h3>
+                    <img class="tutimage" src="/assets/tut2.jpg">
+                    <h3 class="tuttext">2. Scroll to the bottom and tap on Signature</h3>
+                    <img class="tutimage" src="/assets/tut3.jpg">
+                    <h3 class="tuttext">3. Tap the text box, select all of it, and hit backspace.<br>If there's multiple, tap the 'Cubic Exchange' one</h3>
+                    <img class="tutimage" src="/assets/tut4.jpg">
+                    <h3 class="tuttext">4. Long-press on the empty box, and select Paste </h3>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
