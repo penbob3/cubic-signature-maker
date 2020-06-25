@@ -6,12 +6,13 @@
         <link rel="icon" href="https://cubic.com.au/wp-content/uploads/2019/09/Cubic-Icon-250x250.png" sizes="192x192">
         <link rel="apple-touch-icon" href="https://cubic.com.au/wp-content/uploads/2019/09/Cubic-Icon-250x250.png">
         <meta name="msapplication-TileImage" content="https://cubic.com.au/wp-content/uploads/2019/09/Cubic-Icon.png">
+        <meta name="viewport" content="width=device-width; maximum-scale=1;">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
         <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400&display=swap" rel="stylesheet"> 
         <link rel="stylesheet" href="sigMaker.css">
         <script src="sigMaker.js"></script>
     </head>
-    <body>
+    <body onload="checkiOS()">
         <div id="header">
             <img id="mainlogo" src="https://cubic.com.au/wp-content/uploads/2019/09/logo.svg" data-src="https://cubic.com.au/wp-content/uploads/2019/09/logo.svg">
             <a style="text-decoration: none;" href="http://cubic.com.au"><div id="backtext"><h1>&lt; Return to main website</h1></div></a>
@@ -36,7 +37,7 @@
                 </div>
                 <div id="fields" class="inputname">
                     Name: <input class="inputtext" id="name" placeholder="John Smith"><br>
-                    E-mail: <input class="inputtext" id="email" placeholder="john@cubic.com.au"><br>
+                    E-mail: <input class="inputtext" id="email" type="email" placeholder="john@cubic.com.au"><br>
                     Phone: <input class="inputtext" id="phone" placeholder="0411 222 333"><br>
                     Title: <input class="inputtext" id="jobtitle" placeholder="CEO"><br>
                     End Msg: <textarea class="inputtext" id="endmsg" rows="3" cols="1" placeholder="Cheers, John"></textarea>
@@ -71,7 +72,7 @@
                             <span style="font-weight: 600;">E </span><a id="emailout" href="mailto:john@cubic.com.au">john@cubic.com.au</a><br>
                             <span style="font-weight: 600;">W </span><a href="http://www.cubic.com.au">www.cubic.com.au</a>
                         </p>
-                        <img style="margin-top: 0x; margin-bottom: 0px; max-width: 217px;" src="/assets/Cubic_Logo.png"><br>
+                        <img style="margin-top: 0x; margin-bottom: 0px; margin-left: 0px; max-width: 217px;" src="/assets/Cubic_Logo.png"><br>
                         <span>
                             <a style="text-decoration:none;" href="https://www.facebook.com/cubicinteriorgroup/">
                                 <img style="max-width: 32px" src="/assets/Facebook_DarkOrange.png">
@@ -91,7 +92,7 @@
                             33-37 Egerton Street, Silverwater NSW 2128<br>
                             <span style="font-weight: 600;">T</span> 1300 028 242  <span style="font-weight: 600;">F</span> 1300 056 369 
                         </p>
-                        <img style="margin-top: -10px; max-width: 602px" src="/assets/Footer_Signature.png">
+                        <img style="margin-top: -10px; margin-left: 0px; max-width: 520px" src="/assets/Footer_Signature.png">
                     </div>
                 </div>
             <p style="font-family: Tahoma, Geneva, sans-serif; font-size: 20pt; font-weight: 200; color: #394A58; margin-bottom: -30px; margin-top: 20px">
@@ -117,8 +118,12 @@
                     <h3 class="tuttext">3. Tap the text box, select all of it, and hit backspace.<br>If there's multiple, tap the 'Cubic Exchange' one</h3>
                     <img class="tutimage" src="/assets/tut4.jpg">
                     <h3 class="tuttext">4. Long-press on the empty box, and select Paste </h3>
+                    <img id="shakepic" class="tutimage" src="/assets/tut5.jpg">
+                    <h3 id="shaketext" class="tuttext">5. Shake your device to bring up the Undo menu,<br>then tap on 'Undo'</h3>
                 </div>
             </div>
+            <h4 id="endtext" style="display: none;">You're done!</h4>
+            <div id="endspacer"></div>
         </div>
     </body>
 </html>

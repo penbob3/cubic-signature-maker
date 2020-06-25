@@ -1,42 +1,74 @@
+function checkiOS() {
+    var iOS = navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform)
+    if (iOS != true) {
+        alert("It looks like you're accessing this website from an unsupported device. If you're on an iPhone or iPad, then this is an error and you can safely dismiss it.")
+    }
+}
+
+var isInViewport = function (elm) {
+	var distance = elm.getBoundingClientRect()
+	return (
+		distance.top >= 0 &&
+		distance.left >= 0 &&
+		distance.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+		distance.right <= (window.innerWidth || document.documentElement.clientWidth)
+	)
+}
+
+var hasShaken = false
+
 function showSteps() {
     //Unfocus text boxes to allow window to scroll
-    var elm = document.querySelector( ':focus' );
-    if( elm ) elm.blur();
+    var elm = document.querySelector( ':focus' )
+    if( elm ) elm.blur()
 
     //Show the next two steps
     var step2 = document.getElementById("step2")
     var step3 = document.getElementById("step3")
+    var endtext = document.getElementById("endtext")
     step2.style.display = "block"
     step3.style.display = "block"
+    endtext.style.display = "block"
+
+    var belowpic = document.getElementById('shaketext')
+    var body = document.getElementsByTagName('body')[0]
+    document.addEventListener("scroll", function() {
+        if (isInViewport(belowpic) && hasShaken == false) {
+            setTimeout(function() {
+                var pic = document.getElementById('shakepic').classList.add('shakein')
+            }, 200)
+            hasShaken = true
+        }
+    });
   } 
 
 function copyClipboard() {
-    var elm = document.getElementById("finishedsig");
+    var elm = document.getElementById("finishedsig")
   
     if(document.body.createTextRange) {
-      var range = document.body.createTextRange();
-      range.moveToElementText(elm);
+      var range = document.body.createTextRange()
+      range.moveToElementText(elm)
       range.select();
-      document.execCommand("Copy");
+      document.execCommand("Copy")
     }
     else if(window.getSelection) {
   
-      var selection = window.getSelection();
-      var range = document.createRange();
-      range.selectNodeContents(elm);
-      selection.removeAllRanges();
-      selection.addRange(range);
-      document.execCommand("Copy");
+      var selection = window.getSelection()
+      var range = document.createRange()
+      range.selectNodeContents(elm)
+      selection.removeAllRanges()
+      selection.addRange(range)
+      document.execCommand("Copy")
     }
 
     if (window.getSelection) {
         if (window.getSelection().empty) {  // Chrome
-          window.getSelection().empty();
+          window.getSelection().empty()
         } else if (window.getSelection().removeAllRanges) {  // Firefox
-          window.getSelection().removeAllRanges();
+          window.getSelection().removeAllRanges()
         }
       } else if (document.selection) {  // IE?
-        document.selection.empty();
+        document.selection.empty()
     }
 
     document.getElementById("step2").scrollIntoView({behavior: "smooth"}
@@ -51,8 +83,6 @@ function isEmpty(str){
 function genSignature() {
 
     try {
-        showSteps()
-
         var details = {
             name: document.getElementById("name").value,
             email: document.getElementById("email").value,
@@ -68,6 +98,7 @@ function genSignature() {
         } else if (isEmpty(details.phone)) {
             alert("Phone number is required!")
         } else {
+            showSteps()
             if (isEmpty(details.title) != true) {
                 document.getElementById("titleout").innerHTML = details.title + "<br>"
             } else {
@@ -84,7 +115,7 @@ function genSignature() {
             document.getElementById("phoneout").textContent = details.phone
             var emailout = document.getElementById("emailout")
             emailout.textContent = details.email
-            var email = details.email.replace(/\s+/g, '');
+            var email = details.email.replace(/\s+/g, '')
             emailout.setAttribute("href", "mailto:" + email)
 
             copyClipboard()

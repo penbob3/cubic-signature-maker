@@ -1,3 +1,5 @@
+body {-webkit-text-size-adjust: none;}
+
 #header {
     height: 10vh;
     min-height: 90px;
@@ -159,6 +161,12 @@
     margin-top: -4px;
 }
 
+#endspacer {
+    height: 60px;
+    width: 100px;
+    background-color: #fff;
+}
+
 h1 {
     font-family: 'Raleway', sans-serif;
     font-weight: 400;
@@ -188,6 +196,16 @@ h3 {
     line-height: 70px;
 }
 
+h4 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    color: #253d51;
+    font-size: 46px;
+    user-select: none;
+    text-align: center;
+    line-height: 70px;
+}
+
 .inputname {
     font-family: 'Raleway', sans-serif;
     font-weight: 400;
@@ -200,3 +218,25 @@ h3 {
 * {
     -webkit-overflow-scrolling: touch;
 }
+
+.shakein {
+    animation: shake 1.2s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+@keyframes shake {
+    10%, 90% {
+      transform: translate3d(-3px, 0, 0);
+    }
+    
+    20%, 80% {
+      transform: translate3d(5px, 0, 0);
+    }
+  
+    30%, 50%, 70% {
+      transform: translate3d(-9px, 0, 0);
+    }
+  
+    40%, 60% {
+      transform: translate3d(9px, 0, 0);
+    }
+  }
