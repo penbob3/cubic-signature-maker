@@ -29,7 +29,7 @@ function showSteps() {
         if (isInViewport(belowpic) && hasShaken == false) {
             setTimeout(function() {
                 var pic = document.getElementById('shakepic').classList.add('shakein')
-            }, 200)
+            }, 500)
             hasShaken = true
         }
     });

@@ -145,6 +145,12 @@ body {-webkit-text-size-adjust: none;}
     text-align: left;
 }
 
+#importantbox {
+    border-style: solid;
+    border-width: 2px;
+    border-color: crimson;
+}
+
 #images {
     margin-top: 40px;
 }
@@ -154,11 +160,11 @@ body {-webkit-text-size-adjust: none;}
     border-style: solid;
     border-width: 2px;
     border-color: #253d51;
-    margin-top: 10px;
+    margin-bottom: 16px;
 }
 
 .tuttext {
-    margin-top: -4px;
+    margin-bottom: -2px;
 }
 
 #endspacer {
