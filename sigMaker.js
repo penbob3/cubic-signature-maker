@@ -1,10 +1,3 @@
-function checkiOS() {
-    var iOS = navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform)
-    if (iOS != true) {
-        alert("It looks like you're accessing this website from an unsupported device. If you're on an iPhone or iPad, then this is an error and you can safely dismiss it.")
-    }
-}
-
 var isInViewport = function (elm) {
 	var distance = elm.getBoundingClientRect()
 	return (
@@ -82,6 +75,16 @@ function isEmpty(str){
 
 function genSignature() {
 
+    JsLoadingOverlay.show({
+        'overlayBackgroundColor': '#FFF',
+        'overlayOpacity': 0.6,
+        'spinnerIcon': 'square-spin',
+        'spinnerColor': '#253d51',
+        'spinnerSize': '2x',
+        'overlayIDName': 'overlay',
+        'spinnerIDName': 'spinner',
+      });
+
     try {
         var details = {
             name: document.getElementById("name").value,
@@ -118,7 +121,21 @@ function genSignature() {
             var email = details.email.replace(/\s+/g, '')
             emailout.setAttribute("href", "mailto:" + email)
 
-            copyClipboard()
+            var img = document.getElementById('footerimg')
+
+            if (img.complete) {
+                copyClipboard()
+                JsLoadingOverlay.hide();
+            } else {
+                img.addEventListener('load', function() {
+                    copyClipboard()
+                    JsLoadingOverlay.hide();
+                })
+                img.addEventListener('error', function() {
+                    JsLoadingOverlay.hide();
+                    alert('An error occured. Please try reloading the page.')
+                })
+            }
         }
     } catch(e) {
         alert("An error has occured, try reloading the page.")

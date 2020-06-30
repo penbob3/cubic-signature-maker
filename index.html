@@ -7,12 +7,21 @@
         <link rel="apple-touch-icon" href="https://cubic.com.au/wp-content/uploads/2019/09/Cubic-Icon-250x250.png">
         <meta name="msapplication-TileImage" content="https://cubic.com.au/wp-content/uploads/2019/09/Cubic-Icon.png">
         <meta name="viewport" content="width=device-width; maximum-scale=1;">
+        <meta charset="UTF-8">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
         <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400&display=swap" rel="stylesheet"> 
         <link rel="stylesheet" href="sigMaker.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/load-awesome@1.1.0/css/square-spin.min.css">
+        <script src="js-loading-overlay.min.js"></script>
         <script src="sigMaker.js"></script>
     </head>
-    <body onload="checkiOS()">
+    <script>
+        var iOS = navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform)
+        if (iOS != true) {
+            alert("It looks like you're accessing this website from an unsupported device. If you're on an iPhone or iPad, then this is an error and you can safely dismiss it.")
+        }
+    </script>
+    <body>
         <div id="header">
             <img id="mainlogo" src="https://cubic.com.au/wp-content/uploads/2019/09/logo.svg" data-src="https://cubic.com.au/wp-content/uploads/2019/09/logo.svg">
             <a style="text-decoration: none;" href="http://cubic.com.au"><div id="backtext"><h1>&lt; Return to main website</h1></div></a>
@@ -40,7 +49,7 @@
                     E-mail: <input class="inputtext" id="email" type="email" placeholder="john@cubic.com.au"><br>
                     Phone: <input class="inputtext" id="phone" type="tel" placeholder="0411 222 333"><br>
                     Title: <input class="inputtext" id="jobtitle" type="text" placeholder="CEO"><br>
-                    End Msg: <textarea class="inputtext" id="endmsg" type="text" rows="3" cols="1" placeholder="Cheers, John"></textarea>
+                    Sign off: <textarea class="inputtext" id="endmsg" type="text" rows="3" cols="1" placeholder="Cheers, John"></textarea>
                 </div>
                 <button id="sendbtn" type="submit" onclick="genSignature()">Submit</button>
             </div>
@@ -59,6 +68,7 @@
                 <!-- Styling is inline for this section to ensure the signature formatting copies over correctly -->
                 <div id="sigcontainer">
                     <div id="finishedsig">
+
                         <p style="font-family: Tahoma, Geneva, sans-serif; font-size: 11pt; font-weight: 200; color: #394A58; margin-bottom: 0px">
                             <span id="msgout">
                             Kind regards,<br>
@@ -72,19 +82,19 @@
                             <span style="font-weight: 600;">E </span><a id="emailout" href="mailto:john@cubic.com.au">john@cubic.com.au</a><br>
                             <span style="font-weight: 600;">W </span><a href="http://www.cubic.com.au">www.cubic.com.au</a>
                         </p>
-                        <img style="margin-top: 0x; margin-bottom: 0px; margin-left: 0px; max-width: 217px;" src="/assets/Cubic_Logo.png"><br>
+                        <img width="217" style="margin-top: 0x; margin-bottom: 0px; margin-left: 0px; width: 100%; max-width: 217px" src="https://cubic.com.au/wp-content/uploads/2020/06/Cubic_Logo-1.png"><br>
                         <span>
                             <a style="text-decoration:none;" href="https://www.facebook.com/cubicinteriorgroup/">
-                                <img style="max-width: 32px" src="/assets/Facebook_DarkOrange.png">
+                                <img width="32" style="width: 100%; max-width: 32px" src="https://cubic.com.au/wp-content/uploads/2020/06/Facebook_DarkOrange-1.png">
                             </a>
                             <a style="text-decoration:none;" href="https://www.instagram.com/cubic.group/">
-                                <img style="max-width: 32px" src="/assets/Instagram_DarkOrange.png">
+                                <img width="32" style="width: 100%; max-width: 32px" src="https://cubic.com.au/wp-content/uploads/2020/06/Instagram_DarkOrange-1.png">
                             </a>
                             <a style="text-decoration:none;" href="https://www.youtube.com/channel/UCQguS_TJb-ke81BPg-E-5RQ">
-                                <img style="max-width: 32px"src="/assets/YouTube_DarkOrange.png">
+                                <img width="32" style="width: 100%; max-width: 32px" src="https://cubic.com.au/wp-content/uploads/2020/06/YouTube_DarkOrange-1.png">
                             </a>
                             <a style="text-decoration:none;" href="https://www.linkedin.com/company/cubicgroup/?viewAsMember=true">
-                                <img style="max-width: 32px" src="/assets/LinkedIn_DarkOrange.png">
+                                <img width="32" style="width: 100%; max-width: 32px" src="https://cubic.com.au/wp-content/uploads/2020/06/LinkedIn_DarkOrange-1.png">
                             </a>
                         </span>
                         <p style="margin-top: 3px; line-height: 20px; font-family: Tahoma, Geneva, sans-serif; font-size: 11pt; font-weight: 200; color: #394A58;">
@@ -92,10 +102,10 @@
                             33-37 Egerton Street, Silverwater NSW 2128<br>
                             <span style="font-weight: 600;">T</span> 1300 028 242  <span style="font-weight: 600;">F</span> 1300 056 369 
                         </p>
-                        <img style="margin-top: -10px; margin-left: 0px; max-width: 520px" src="/assets/Footer_Signature.png">
+                        <img id="footerimg" width="520" style="margin-top: -10px; margin-left: 0px; width: 100%; max-width: 520px" src="https://cubic.com.au/wp-content/uploads/2020/06/Footer_Signature.png">
                     </div>
                 </div>
-            <p style="font-family: Tahoma, Geneva, sans-serif; font-size: 20pt; font-weight: 200; color: #394A58; margin-bottom: -30px; margin-top: 20px">
+            <p style="font-family: Tahoma, Geneva, sans-serif; font-size: 24pt; font-weight: 200; color: #394A58; margin-bottom: -30px; margin-top: 20px">
                 Note: The preview above is for text approval purposes,<br>formatting will look correct once sent in an email.
             </p>
             </div>
@@ -110,15 +120,15 @@
                     </p>
                 </div>
                 <div id="images">
-                    <img class="tutimage" src="/assets/tut1.jpg">
+                    <img class="tutimage" src="https://cubic.com.au/wp-content/uploads/2020/06/tut1.jpeg">
                     <h3 class="tuttext">1. Open Settings, then scroll down to Mail and tap it</h3>
-                    <img class="tutimage" src="/assets/tut2.jpg">
+                    <img class="tutimage" src="https://cubic.com.au/wp-content/uploads/2020/06/tut2.jpeg">
                     <h3 class="tuttext">2. Scroll to the bottom and tap on Signature</h3>
-                    <img class="tutimage" src="/assets/tut3.jpg">
+                    <img class="tutimage" src="https://cubic.com.au/wp-content/uploads/2020/06/tut3.jpeg">
                     <h3 class="tuttext">3. Tap the text box, select all of it, and hit backspace.<br>If there's multiple, tap the 'Cubic Exchange' one</h3>
-                    <img class="tutimage" src="/assets/tut4.jpg">
+                    <img class="tutimage" src="https://cubic.com.au/wp-content/uploads/2020/06/tut4.jpeg">
                     <h3 class="tuttext">4. Long-press on the empty box, and select Paste </h3>
-                    <img id="shakepic" class="tutimage" src="/assets/tut5.jpg">
+                    <img id="shakepic" class="tutimage" src="https://cubic.com.au/wp-content/uploads/2020/06/tut5.jpeg">
                     <h3 id="shaketext" class="tuttext">5. Shake your device to bring up the Undo menu,<br>then tap on 'Undo'</h3>
                 </div>
             </div>
